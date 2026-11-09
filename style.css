@@ -569,33 +569,24 @@ textarea {
 
 .image-box {
     height: 100%;
-
+    width: 100%;
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #28221d,
-            #121212
-        );
-
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #28221d,
+        #121212
+    );
     border: 1px solid #333;
+}
 
-    color: #ddd;
-
-    font-family: var(--heading);
-
-    font-size: 4rem;
-
-    line-height: 0.75;
-
-    letter-spacing: 3px;
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 
@@ -618,6 +609,79 @@ textarea {
     margin-top: 15px;
 }
 
+.booking-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.5fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.booking-info {
+    position: sticky;
+    top: 100px;
+}
+
+.booking-events {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background: linear-gradient(
+        145deg,
+        #202020,
+        #141414
+    );
+
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    border-color: #b83232;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.event-card h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.event-date {
+    color: #e05252;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.event-card p {
+    color: #bbb;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+
+.event-price {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 18px;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
 
 /* ================= SERVICES ================= */
 
@@ -1404,32 +1468,28 @@ textarea {
 
     .nav {
         position: absolute;
-
         top: 82px;
-
         left: 0;
-
         width: 100%;
-
         padding: 25px;
-
         background: #111;
-
         display: flex;
-
         flex-direction: column;
-
         align-items: stretch;
-
         gap: 18px;
-
         border-bottom: 1px solid #292929;
-
         transform: translateY(-150%);
-
         transition: 0.3s;
     }
 
+    .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .booking-info {
+        position: static;
+    }
 
     .nav.active {
         transform: translateY(0);
